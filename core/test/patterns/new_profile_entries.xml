@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patterns>
+	<functions>
+		<function name="CPU consuming section : please look at CPU panel for more details" pattern="features.CPUConsumingTask.consumeCPU" priority="500"/>
+		<function pattern="org.jeyzer.demo.features.PingPongPlayer$PingPongReferee.&lt;init&gt;" name="PingPongReferee instantiation"/>
+		<function pattern="org.jeyzer.demo.features.PingPongPlayer$PingPongReferee.watch" name="Watch"/>
+		<function pattern="org.jeyzer.demo.features.PingPongPlayer.getName" name="Get name"/>
+		<function pattern="org.jeyzer.demo.features.PingPongPlayer.doPing" name="Plays ping" priority="900"/>
+	</functions>
+	<operations>
+		<!-- Will merge with existing, keeping smallest common pattern. 2 will therefore be removed -->
+		<operation name="CPU creation : do mathematical operations" pattern="features.CPUConsumingTask.consumeCPU2"/>
+		<!-- Will merge with existing, keeping smallest common pattern. Hoho will therefore be removed -->
+		<operation name="Backhand shot" pattern="features.mx.jeyzer.LongTennisPlayer.backhandShotHoHo."/>
+		<!-- Will remove the contention type on the source -->
+		<operation name="Serve shot" pattern="features.mx.jeyzer.LongTennisPlayer.serveShot"/>
+		<!-- Will add the priority and the type -->
+		<operation name="Access to already locked resource" pattern="features.Deadlock.accessSharedResources" priority="500" type="Type to be added"/>
+		<operation pattern="org.jeyzer.demo.features.PingPongPlayer.doPong" name="Plays pong" priority="901"/>
+		<operation pattern="org.jeyzer.demo.features.PingPongPlayer." name="Ping pong player" priority="901"/>
+	</operations>
+	<lockers>
+	  	<locker name="New locker" pattern="features.mx.jeyzer.Locker.lock"/>
+	  	<locker name="Variant locker" pattern="features.mx.jeyzer.Locker.FetchAndLock"/>
+	</lockers>
+	<executors>
+		<executor pattern="org.jeyzer.demo.features.PingPongPlayer.show" name="Show"/>
+	</executors>
+	<executor_thread_names>
+		<executor_thread_name pattern_regex="ThreadNameExecutor.*" name="Thread executor"/>
+	</executor_thread_names>
+	<excludes>
+		<exclude pattern="org.jeyzer.demo.features.PingPongPlayer$PingPongReferee" name="Ping pong referee"/>
+		<exclude pattern="org.jeyzer.demo.features.PingPongPlayer.&lt;init&gt;" name="PingPongPlayer instantiation"/>
+	</excludes>
+	<exclude_thread_names>
+		<exclude_thread_name pattern="ExcludedThreadName" name="Thread to exclude" size="10"/>
+	</exclude_thread_names>
+</patterns>

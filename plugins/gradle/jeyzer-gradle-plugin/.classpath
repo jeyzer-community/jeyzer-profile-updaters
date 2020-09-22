@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/org/codehaus/groovy/groovy/2.4.11/groovy-2.4.11.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/gradle/gradle-base-services/2.9/gradle-base-services-2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.10/slf4j-api-1.7.10.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/gradle/gradle-core/2.9/gradle-core-2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/gradle/gradle-resources/2.9/gradle-resources-2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/gradle/gradle-base-services-groovy/2.9/gradle-base-services-groovy-2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/gradle/gradle-messaging/2.9/gradle-messaging-2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07-shaded.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/ow2/asm/asm/4.0/asm-4.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/objenesis/objenesis/1.2/objenesis-1.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/guava/guava/16.0.1/guava-16.0.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Jeyzer-Profile-Updater"/>
+	<classpathentry kind="var" path="M2_REPO/org/jeyzer/jeyzer-profile-updater/2.0-SNAPSHOT/jeyzer-profile-updater-2.0-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

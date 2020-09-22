@@ -1,0 +1,41 @@
+ ------
+ Updates the Jeyzer Demo shared patterns file.
+ ------
+
+Updates the pattern file of the the Jeyzer Shared shared profiles.
+
+ * The standard goal <<<update-profile>>> invoked during the <<<package>>> phase.
+ 
+ * The resulting file <<<jeyzer-demo-shared_patterns.xml>>> is then taken out by a Jeyzer site deployment project (not covered here) in order to be injected in the Jeyzer demo profile repository.
+
++-----+
+<project>
+  ...
+  <build>
+    <plugins>
+       <!-- Update the project Jeyzer profiles -->
+       <plugin>
+         <groupId>org.jeyzer.build</groupId>
+         <artifactId>jeyzer-maven-plugin</artifactId>
+         <version>${project.version}</version>
+         <executions>
+           <execution>
+             <id>jeyzer-demo-shared</id>
+             <phase>package</phase>
+             <configuration>
+               <sourcePatterns>${basedir}/src/main/config/profiles/shared/jeyzer-demo-shared/jeyzer-demo-shared_patterns.xml</sourcePatterns>
+               <!-- newPatternEntries>${project.build.directory}/generated-sources/jeyzer/new_pattern_entries.xml</newPatternEntries>
+               <targetPatternsDir>${project.build.directory}/generated-sources/jeyzer</targetPatternsDir> -->
+               <targetPatternsName>jeyzer-demo-shared_patterns</targetPatternsName>
+             </configuration>
+             <goals>
+               <goal>update-profile</goal>
+             </goals>
+           </execution>
+         </executions>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
++-----+

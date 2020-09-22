@@ -1,0 +1,93 @@
+<profile name="Demo-features" version="$LastChangedRevision: 866 $">
+
+    <patterns>
+      <!-- Discovery functions are loaded only if discovery mode is enabled (cf. discovery_mode) -->
+      <discovery_functions>
+        <!-- pattern is a list of keywords, comma separated. Each keyword will issue one discovery rule -->
+        <!-- pattern_regex is optional. Focus can be : method, class, both -->
+        <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_1}"/>
+        <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_2}"/>
+        <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_3}"/>
+        <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_4}"/>
+        <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_5}"/>
+      </discovery_functions>
+      <!-- In pattern attribute, use semicolon separator to declare multiple line patterns -->
+      <functions>
+        <!-- Features demo -->
+        <function name="Plays ping (blue)" pattern="features.PingPongPlayer.doPing"/>
+        <function name="Plays pong (green)" pattern="features.PingPongPlayer.doPong"/>
+        <function name="Long running tennis player" pattern="features.mx.jeyzer.LongTennisPlayer.longRunningTask"/>
+        <function name="Run left" pattern="features.mx.jeyzer.LongTennisPlayer.runLeft"/>
+        <function name="Run right" pattern="features.mx.jeyzer.LongTennisPlayer.runRight"/>
+        <function name="Run middle" pattern="features.mx.jeyzer.LongTennisPlayer.runMiddle"/>
+        <!--
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.set"  name="Volley set"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.serve"  name="Volley serve"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.pass"  name="Volley pass"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.attack"  name="Volley attack"/>
+				-->
+        <function name="Frozen code section : stacks are identical" pattern="features.FrozenCode.frozenCode"/>
+        <function name="Memory consuming section : please look at Memory panel for more details" pattern="features.MemoryConsumingTask.consumeMemory"/>
+        <function name="CPU consuming section : please look at CPU panel for more details" pattern="features.CPUConsumingTask.consumeCPU"/>
+        <function name="Dysfunctional code sequence" pattern="features.DysfunctionalCodeSequence.dysfunctionalCode2;DysfunctionalCodeSequence.dysfunctionalCode1"/>
+        <function name="Hiatus detected right after this cell : threads dumps were not generated" pattern="features.HiatusStart.hiatusStart"/>
+        <function name="Hiatus detected right before this cell" pattern="features.HiatusEnd.hiatusEnd"/>
+        <function name="Thread owning the synchronized lock section" pattern="features.LockedThreads.executedLockedAction" priority="900"/>
+        <function name="Thread waiting for the synchronized lock to be released" pattern="features.LockedThreads.executedActionLevel2"/>
+        <function name="Thread in deadlock" pattern="features.Deadlock.accessSharedResources"/>
+        <function name="Waiting before ExecutorService forceShutdown" pattern="features.Deadlock.waitBeforeShutdown"/>
+      </functions>
+      <discovery_operations>
+        <!-- pattern is a list of keywords, comma separated. Each keyword will issue one discovery rule -->
+        <!-- pattern_regex is optional. Focus can be : method, class, both -->
+        <discovery_operation focus="method" pattern="SharedResources" pattern_regex="org\.rwn\.jeyzer.*"/>
+      </discovery_operations>
+      <operations>
+        <!-- Operation patterns apply for the first 20 lines of the thread dump                	 -->
+        <!-- Exception : patterns ending with '.' apply for the first 2 lines of the thread dump -->
+        <!-- Features demo -->
+        <operation name="Memory creation : fill list with random long numbers" pattern="features.MemoryConsumingTask.consumeMemory"/>
+        <operation name="CPU creation : do mathematical operations" pattern="features.CPUConsumingTask.consumeCPU"/>
+        <operation name="Method action level2 is synchronized" pattern="features.LockedThreads.executedActionLevel2"/>
+        <operation name="Backhand shot" pattern="features.mx.jeyzer.LongTennisPlayer.backhandShot500" type="Type to be removed"/>
+        <operation name="Access to already locked resource" pattern="features.Deadlock.accessSharedResources"/>
+        <operation name="Forehand shot" pattern="features.mx.jeyzer.LongTennisPlayer.forehandShot" type="Shot"/>
+        <operation name="Grip shot" pattern="features.mx.jeyzer.LongTennisPlayer.gripShot" type="Shot"/>
+        <operation name="Backhand shot" pattern="features.mx.jeyzer.LongTennisPlayer.backhandShot" type="Type to be removed"/>
+        <operation name="Serve shot" pattern="features.mx.jeyzer.LongTennisPlayer.serveShot" type="Shot"/>
+      </operations>
+	  <lockers>
+	  	<locker name="Old locker" pattern="features.mx.jeyzer.Locker.getAndLock"/>
+	  	<locker name="Variant locker" pattern="features.mx.jeyzer.Locker.SearchAndLock"/>
+	  </lockers>
+      <executors>
+        <!-- Executor patterns must be available within the 20 first lines of the thread dump -->
+        <!-- Features demo -->
+        <executor name="Demo thread" pattern="features.FeatureRunnable.run"/>
+        <executor name="MX Demo thread" pattern="LongTennisPlayer$TennisRunnable.run"/>
+        <executor name="Lock feature thread" pattern="features.LockedThreads$1.run"/>
+        <executor name="Deadlock feature thread" pattern="features.Deadlock$1.run"/>
+      </executors>
+      <executor_thread_names>
+        <!-- Executor pattern based on the thread name. Regular expression recommended -->
+        <!--executor_thread_name pattern="thread pattern" name="Thread type name"/-->
+        <!--executor_thread_name pattern_regex="regex" name="Thread type name"/-->
+      </executor_thread_names>
+      <excludes>
+        <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+        <exclude name="RMI Scheduler" pattern="ThreadPoolExecutor.getTask"/>
+        <exclude name="Finalizer" pattern="Finalizer$FinalizerThread.run"/>
+        <exclude name="Inactive demo thread" pattern="features.FeatureRunnable.waitForTermination"/>
+        <exclude name="Main" pattern="features.FeatureDemo.main"/>
+        <exclude name="Lock setup thread" pattern="features.LockedThreads.lockThreads"/>
+      </excludes>
+      <exclude_thread_names>
+        <!-- Exclude stack based on thread name. Regular expression recommended -->
+        <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+        <exclude_thread_name name="RMI thread" pattern_regex="RMI TCP.*"/>
+        <exclude_thread_name name="RMI thread" pattern="JMX server connection timeout"/>
+        <exclude_thread_name name="Reference Handler" pattern="Reference Handler"/>
+      </exclude_thread_names>
+    </patterns>
+
+</profile>

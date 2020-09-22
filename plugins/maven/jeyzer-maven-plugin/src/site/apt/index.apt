@@ -1,0 +1,54 @@
+ ------
+ Introduction
+ ------
+ Jeyzer Community
+ ------
+ 2020-09-20
+ ------
+ 
+ 
+Jeyzer profile updater
+ 
+  This Maven plugin permits to call the Jeyzer profile updater module during the Maven package phase.
+  
+  The Jeyzer profile updater is responsible for updating the Jeyzer patterns XML file with the pattern entry changes (new/updated/deleted) resulting from the Jeyzer annotations {{{https://jeyzer.org/docs/shared-profile/annotations/}compilation}}. 
+
+  The resulting patterns file is generated along with its original source file, suffixed by <.source> to allow easy file diff. 
+  
+  <<Intend of this plugin is to automate the Jeyzer profile maintenance : >> The Jeyzer patterns file should be deployed within a Jeyzer repository inside its master or shared profile.
+
+  See also the {{{https://jeyzer.org/docs/shared-profile/profile-updaters/maven-profile-updater-plugin/}Jeyzer online documentation.}}
+ 
+* Goals Overview
+ 
+  General information about the goals.
+ 
+  * {{{./update-profile-mojo.html}jeyzer:update-profile}} updates the Jeyzer patterns XML file with the pattern entry changes (new/updated/deleted) resulting from the Jeyzer annotations compilation.
+ 
+* Usage
+ 
+  General instructions on how to use the Plugin Name can be found on the {{{usage.html}usage page}}. Some more
+  specific use cases are described in the examples given below. 
+ 
+  In case you still have questions regarding the plugin's usage, please have a look at the {{{faq.html}FAQ}} and feel
+  free to contact us on the {{{https://jeyzer.org/forum/forum/deployment/}Jeyzer forum}}. The forum could
+  already contain the answer to your question as part of an older thread.
+ 
+  If you feel like the plugin is missing a feature, you can fill a feature request in the dedicated 
+  {{{https://jeyzer.org/forum/forum/suggestions-and-feedback/}Jeyzer forum}} space. 
+  
+  If you feel like the plugin is missing has a defect, you can fill a bug report in the
+  {{{https://jeyzer.org/forum/forum/report-a-bug/}Jeyzer forum}}.
+  When creating a new issue, please provide a comprehensive description of your
+  concern. Especially for fixing bugs it is crucial that the developers can reproduce your problem.
+  Of course, patches are welcome, too. Contributors can check out the project from our
+  {{{https://github.com/jeyzer-community/jeyzer-profile-updaters/tree/master/plugins/maven/jeyzer-maven-plugin}source repository}}. 
+ 
+* Examples
+ 
+  To provide you with better understanding of some usages of the Plugin Name,
+  you can take a look into the following example:
+ 
+  * {{{./examples/jeyzer-demo-master-example.html}Jeyzer Demo master profile update}}
+
+  * {{{./examples/jeyzer-demo-shared-example.html}Jeyzer Demo shared profile update}}

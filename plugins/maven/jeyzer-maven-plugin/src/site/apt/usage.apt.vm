@@ -1,0 +1,40 @@
+ ------
+ Usage
+ ------
+ Jeyzer Community
+ ------
+ 2020-09-20
+ ------
+
+
+Usage
+
+ The Jeyzer Profile Updater Plugin updates the pattern files of any master or shared profile, based on the {{{https://jeyzer.org/docs/shared-profile/annotations/}patterns generated}} out of Jeyzer annotations.\
+ The following example describes the basic usage of the Plugin.
+ 
+ See also the {{{https://jeyzer.org/docs/shared-profile/profile-updaters/maven-profile-updater-plugin/}Jeyzer online documentation.}}
+
+* Update The Profiles As Part Of Project Builds
+
+ To update the Jeyzer patterns as part of the package phase, you should add the Jeyzer Profile Updater Plugin in the \<build\> section of your pom:
+
++-----+
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jeyzer.build</groupId>
+        <artifactId>jeyzer-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <sourcePatterns>${basedir}/src/main/config/profiles/master/profile_name/analysis/patterns.xml</sourcePatterns>
+        </configuration>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++-----+
+

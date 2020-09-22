@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <faqs id="FAQ" title="Frequently Asked Questions">
+      <part id="General">
+        <faq id="usage">
+          <question>When should I use this plugin ?</question>
+          <answer>
+            <p>
+              As soon as you use the Jeyzer annotations, you need this plugin to update automatically your Jeyzer shared or master profiles.
+            </p>
+          </answer>
+        </faq>
+      </part>
+    </faqs>

@@ -1,0 +1,87 @@
+
+plugins {
+    id 'java-gradle-plugin'
+    id 'java-library'
+    id 'maven'
+    id 'maven-publish'
+    id 'groovy'
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'org.jeyzer.profile-updater'
+            implementationClass = 'org.jeyzer.gradle.JeyzerProfileUpdaterPlugin'
+        }
+    }
+}
+
+group = 'org.jeyzer.build'
+version = '2.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'C:/Dev/programs/Build/maven-repository' }
+}
+
+dependencies {
+    compile gradleApi()
+    compile group: 'org.jeyzer.build', name: 'jeyzer-profile-updater', version:'2.0-SNAPSHOT'
+    testCompile 'junit:junit:4.12'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "$group"
+            artifactId 'jeyzer-gradle-plugin'
+            version "$version"
+            from components.java
+        }
+    }
+}
+publishing {
+    repositories {
+        maven { url "C:/Dev/programs/Build/maven-repository" }
+    }
+}
+
+
+uploadArchives {
+    repositories {
+        maven { url "C:/Dev/programs/Build/maven-repository" }
+    }
+}
+
+task distSnapshot(type: Zip){
+  archiveName="${archivesBaseName}-${version}-snapshot.zip"
+  destinationDir = file("$buildDir/distribution")
+   from (configurations.runtime) {
+        into "${archivesBaseName}-${version}/lib"
+        exclude 'gradle*'
+        exclude 'groovy*'
+   }
+   from ("$buildDir/libs") {
+        into("${archivesBaseName}-${version}/lib")
+        include "${archivesBaseName}-${version}.jar"
+        rename '(.*).jar', "${archivesBaseName}.jar"
+   }
+   from ("$projectDir/src/main/doc") {
+        into("${archivesBaseName}-${version}")
+   }
+   from ("$projectDir/../../../core/pom.xml") {
+        into("${archivesBaseName}-${version}")
+        rename 'pom.xml', "pom-profile-updater.xml"
+   }
+}
+
+task dist(dependsOn: tasks.withType(Zip)) {
+ doLast {}
+}
+
+build.dependsOn(dist)

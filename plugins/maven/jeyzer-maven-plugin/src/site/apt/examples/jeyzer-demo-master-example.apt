@@ -1,0 +1,54 @@
+ ------
+ Updates the Jeyzer Demo master patterns files.
+ ------
+
+Updates the pattern files of the the Jeyzer Labors and Demo Features master profiles.
+
+ * The standard goal <<<update-profile>>> invoked during the <<<package>>> phase.
+ 
+ * The resulting files <<<demo-features-mx_patterns.xml>>> and <<<demo-labors_patterns.xml>>> are then taken out by a Jeyzer site deployment project (not covered here) in order to be injected in the Jeyzer demo profile repository.
+
++-----+
+<project>
+  ...
+  <build>
+    <plugins>
+      <!-- Update the project Jeyzer profiles -->
+      <plugin>
+        <groupId>org.jeyzer.build</groupId>
+        <artifactId>jeyzer-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>demo-features-mx</id>
+            <phase>package</phase>
+            <configuration>
+              <sourcePatterns>${basedir}/src/main/config/profiles/master/demo-features-mx/analysis/patterns.xml</sourcePatterns>
+              <!-- newPatternEntries>${project.build.directory}/generated-sources/jeyzer/new_pattern_entries.xml</newPatternEntries>
+              <targetPatternsDir>${project.build.directory}/generated-sources/jeyzer</targetPatternsDir> -->
+              <targetPatternsName>demo-features-mx_patterns</targetPatternsName>
+            </configuration>
+            <goals>
+              <goal>update-profile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>demo-labors</id>
+            <phase>package</phase>
+            <configuration>
+              <sourcePatterns>${basedir}/src/main/config/profiles/master/demo-labors/analysis/patterns.xml</sourcePatterns>
+              <!-- <newPatternEntries>${project.build.directory}/generated-sources/jeyzer/new_pattern_entries.xml</newPatternEntries>
+              <targetPatternsDir>${project.build.directory}/generated-sources/jeyzer</targetPatternsDir> -->
+              <targetPatternsName>demo-labors_patterns</targetPatternsName>
+            </configuration>
+            <goals>
+              <goal>update-profile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
++-----+
