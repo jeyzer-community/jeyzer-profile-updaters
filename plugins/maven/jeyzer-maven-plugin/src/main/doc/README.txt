@@ -18,7 +18,7 @@ Prerequisites
 ----------------
 - Make the plugin accessible to your Maven build file.
 For this, you need to publish this maven plugin as well as the profile updater library into your local Maven repository by executing the following command :
->mvn install:install-file -Dfile=.\lib\profile-updater-2.0.jar -DpomFile=pom-profile-updater.xml
+>mvn install:install-file -Dfile=.\lib\profile-updater-3.0.jar -DpomFile=pom-profile-updater.xml
 >mvn install:install-file -Dfile=.\lib\jeyzer-maven-plugin.jar -DpomFile=pom.xml
 
 
@@ -31,7 +31,7 @@ To call the plugin from any maven build file, add into it the following entry :
 			<plugin>
 				<groupId>org.jeyzer.maven</groupId>
 				<artifactId>jeyzer-maven-plugin</artifactId>
-				<version>2.0</version>
+				<version>3.0</version>
 				<executions>
 					<execution>
 						<phase>package</phase>

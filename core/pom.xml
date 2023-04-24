@@ -4,7 +4,7 @@
 	<groupId>org.jeyzer.build</groupId>
 	<artifactId>jeyzer-profile-updater-core</artifactId>
 	<packaging>jar</packaging>
-	<version>2.1-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	<name>Jeyzer Profile Updater Core</name>
 	<url>https://github.com/jeyzer-community/jeyzer-profile-updaters/tree/master/core</url>
 	<description>The Jeyzer profile updater core is responsible for updating the master and shared profile patterns with the ones generated out of the Jeyzer annotation processing. Documentation available at https://jeyzer.org/docs/shared-profile/profile-updaters/</description>
@@ -31,7 +31,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
@@ -104,7 +104,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>sign-artifacts</id>
@@ -178,7 +178,7 @@
 	</developers>
 	
 	<organization>
-		<name>Jeyzer SAS</name>
+		<name>Jeyzer</name>
 		<url>https://jeyzer.org</url>
 	</organization>
 	<inceptionYear>2020</inceptionYear>

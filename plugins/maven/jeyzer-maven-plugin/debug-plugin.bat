@@ -1,11 +1,11 @@
 @echo off
 
-set ANNOTATION_PROCESSORS_DIR=C:\Dev\src\jeyzer\community\jeyzer-annotation-processors
-set ANNOTATIONS_DIR=C:\Dev\src\jeyzer\community\jeyzer-annotations
+set ANNOTATION_PROCESSORS_DIR=C:\Dev\src\jeyzer\jeyzer-annotation-processors
+set ANNOTATIONS_DIR=C:\Dev\src\jeyzer\jeyzer-annotations
 
-set PROFILE_UPDATER_CORE_DIR=C:\Dev\src\jeyzer\community\jeyzer-profile-updater\core
-set PROFILE_UPDATER_MAVEN_PLUGIN_DIR=C:\Dev\src\jeyzer\community\jeyzer-profile-updater\plugins\maven\jeyzer-maven-plugin
-set PROFILE_UPDATER_VERSION=2.0
+set PROFILE_UPDATER_CORE_DIR=C:\Dev\src\jeyzer\jeyzer-profile-updater\core
+set PROFILE_UPDATER_MAVEN_PLUGIN_DIR=C:\Dev\src\jeyzer\jeyzer-profile-updater\plugins\maven\jeyzer-maven-plugin
+set PROFILE_UPDATER_VERSION=3.0
 
 set SAMPLES_DIR=C:\Dev\src\jeyzer\samples
 
@@ -15,7 +15,7 @@ set MAVEN_OPTS=
 rem Compile annotations - Optional
 rem cd %ANNOTATIONS_DIR%
 rem call mvn install
-rem call mvn install:install-file -Dfile=%ANNOTATION_PROCESSORS_DIR%\target\jeyzer-annotation-processors-2.0.jar -DpomFile=%ANNOTATION_PROCESSORS_DIR%\pom.xml
+rem call mvn install:install-file -Dfile=%ANNOTATION_PROCESSORS_DIR%\target\jeyzer-annotation-processors-3.0.jar -DpomFile=%ANNOTATION_PROCESSORS_DIR%\pom.xml
 
 rem Move to annotations project
 rem cd %ANNOTATION_PROCESSORS_DIR%
@@ -24,7 +24,7 @@ rem Compile annotation processor - Optional
 rem call mvn clean install
 
 rem Push it on mvn repository
-rem call mvn install:install-file -Dfile=%ANNOTATION_PROCESSORS_DIR%\target\jeyzer-annotation-processors-2.0.jar -DpomFile=%ANNOTATION_PROCESSORS_DIR%\pom.xml
+rem call mvn install:install-file -Dfile=%ANNOTATION_PROCESSORS_DIR%\target\jeyzer-annotation-processors-3.0.jar -DpomFile=%ANNOTATION_PROCESSORS_DIR%\pom.xml
 
 
 rem Move to profile updater core project

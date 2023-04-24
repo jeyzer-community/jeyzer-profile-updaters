@@ -17,7 +17,7 @@ gradlePlugin {
 }
 
 group = 'org.jeyzer.build'
-version = '2.0'
+version = '3.0'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -31,7 +31,7 @@ repositories {
 
 dependencies {
     compile gradleApi()
-    compile group: 'org.jeyzer.build', name: 'jeyzer-profile-updater', version:'2.0-SNAPSHOT'
+    compile group: 'org.jeyzer.build', name: 'jeyzer-profile-updater', version:'3.0-SNAPSHOT'
     testCompile 'junit:junit:4.12'
 }
 

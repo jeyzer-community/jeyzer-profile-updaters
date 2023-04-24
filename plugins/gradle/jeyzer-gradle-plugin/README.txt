@@ -43,7 +43,7 @@ pluginManagement {
 To call the plugin from any Gradle build file, add into it the following entries :
 
 plugins {
-    id 'org.jeyzer.profile-updater' version '2.0'
+    id 'org.jeyzer.profile-updater' version '3.0'
     [...]
 }
 
