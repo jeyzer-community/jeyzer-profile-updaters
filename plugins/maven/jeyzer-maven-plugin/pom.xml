@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jeyzer.build</groupId>
 	<artifactId>jeyzer-maven-plugin</artifactId>
-	<version>3.0</version>
+	<version>3.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>Jeyzer Profile Updater Maven Plugin</name>
 	<url>https://github.com/jeyzer-community/jeyzer-profile-updaters/tree/master/plugins/maven/jeyzer-maven-plugin</url>
@@ -279,7 +279,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/jeyzer-community/jeyzer-profile-updaters</connection>
 		<developerConnection>scm:git:git://github.com/jeyzer-community/jeyzer-profile-updaters</developerConnection>
-		<tag>jeyzer-profile-updater-3.0</tag>
+		<tag>HEAD</tag>
 		<url>https://github.com/jeyzer-community/jeyzer-profile-updaters</url>
 	</scm>
 	
