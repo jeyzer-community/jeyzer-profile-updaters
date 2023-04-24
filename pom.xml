@@ -5,10 +5,14 @@
 	<groupId>org.jeyzer</groupId>
 	<artifactId>jeyzer-profile-updater</artifactId>
 	<packaging>pom</packaging>
-	<version>2.1-SNAPSHOT</version>
+	<version>3.0-SNAPSHOT</version>
 	<name>Jeyzer Profile Updater</name>
 	<url>https://github.com/jeyzer-community/jeyzer-profile-updaters</url>
 	<description>The Jeyzer profile updater project is providing the profile update logic and the build plugins which apply it. Documentation available at https://jeyzer.org/docs/shared-profile/profile-updaters/</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
 	<build>
 		<plugins>
